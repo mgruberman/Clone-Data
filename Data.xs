@@ -72,11 +72,11 @@ clone_sv(SV *sv)
     STRLEN len;
     char *str = SvPV(sv, len);
     return newSVpvn_utf8(str, len, SvUTF8(sv));
-  } else if (SvNOKp(sv)) {
+  } else if (SvNOK(sv)) {
     return newSVnv(SvNV(sv));
   } else if (SvUOK(sv)) {
     return newSVuv(SvUV(sv));
-  } else if (SvIOKp(sv)) {
+  } else if (SvIOK(sv)) {
     return newSViv(SvIV(sv));
   } else if (SvROK(sv)) {
     return clone_rv(SvRV(sv));
