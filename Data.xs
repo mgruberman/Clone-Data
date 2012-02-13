@@ -89,7 +89,9 @@ MODULE = Clone::Data		PACKAGE = Clone::Data
 
 PROTOTYPES: DISABLE
 
-void clone(SV *sv)
+void clone(...)
   PPCODE:
-    XPUSHs(clone_sv(sv));
-
+    int i;
+    for (i = 0; i < items; ++i) {
+      XPUSHs(clone_sv(ST(i)));
+    }
