@@ -24,18 +24,16 @@ clone_av(SV *old) {
 
 static SV *
 clone_hv(SV *old) {
-  SV *val;
+  SV *val, *key;
   HV *new;
   HE *he;
-  char *key;
-  I32 keylen;
 
   new = newHV();
   hv_iterinit((HV*) old);
   while (he = hv_iternext((HV*) old)) {
-    key = hv_iterkey(he, &keylen);
+    key = hv_iterkeysv(he);
     val = hv_iterval((HV*) old, he);
-    hv_store(new, key, keylen,
+    hv_store_ent(new, key,
         val ? clone_sv(val) : &PL_sv_undef,
         0);
   }
@@ -72,7 +70,7 @@ clone_sv(SV *sv)
   if (SvPOKp(sv)) {
     STRLEN len;
     char *str = SvPV(sv, len);
-    return newSVpvn(str, len);
+    return newSVpvn_utf8(str, len, SvUTF8(sv));
   } else if (SvNOKp(sv)) {
     return newSVnv(SvNV(sv));
   } else if (SvUOK(sv)) {
