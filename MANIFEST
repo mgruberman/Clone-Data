@@ -3,3 +3,6 @@ Data.pm
 Data.xs
 META.yml                                 Module YAML meta-data (added by MakeMaker)
 META.json                                Module JSON meta-data (added by MakeMaker)
+t/01array.t
+t/02hash.t
+t/03scalar.t
