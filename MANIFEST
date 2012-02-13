@@ -1,6 +1,8 @@
 Makefile.PL
 Data.pm
 Data.xs
+eg/profile.pl
+eg/profile.sh
 META.yml                                 Module YAML meta-data (added by MakeMaker)
 META.json                                Module JSON meta-data (added by MakeMaker)
 ppport.h
