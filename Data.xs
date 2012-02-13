@@ -53,7 +53,8 @@ clone_rv(SV *sv)
       new = clone_av(sv);
       break;
     default:
-      return clone_sv(sv);
+      new = newRV_noinc(clone_sv(sv));
+      break;
   }
 
   if (SvOBJECT(sv)) {
