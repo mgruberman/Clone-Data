@@ -1,11 +1,14 @@
-Makefile.PL
 Data.pm
 Data.xs
 eg/profile.pl
 eg/profile.sh
-META.yml                                 Module YAML meta-data (added by MakeMaker)
-META.json                                Module JSON meta-data (added by MakeMaker)
+Makefile.PL
+MANIFEST
+META.json			Module JSON meta-data (added by MakeMaker)
+META.yml			Module YAML meta-data (added by MakeMaker)
 ppport.h
 t/01array.t
 t/02hash.t
 t/03scalar.t
+t/06refcnt.t
+t/07magic.t
